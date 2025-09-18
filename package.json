@@ -2,6 +2,7 @@
   "name": "my-hexo-blog",
   "version": "1.0.0",
   "description": "My personal blog built with Hexo",
+  "main": "index.js",
   "scripts": {
     "build": "hexo generate",
     "clean": "hexo clean",
