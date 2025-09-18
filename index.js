@@ -1,15 +1,11 @@
 // index.js
+const Hexo = require('hexo');
+const hexo = new Hexo(process.cwd(), {});
 
-console.log("程序启动成功！");
-
-// 例如，如果你要跑一个 Bot/服务器，可以在这里写启动逻辑
-// 比如监听 HTTP 请求：
-const http = require("http");
-
-const server = http.createServer((req, res) => {
-  res.end("Hello World!");
-});
-
-server.listen(3000, () => {
-  console.log("服务器运行在 http://localhost:3000");
-});
+hexo.init()
+  .then(() => hexo.call('server', [])) // 启动本地服务器
+  .then(() => hexo.exit())
+  .catch(err => {
+    console.error(err);
+    hexo.exit(err);
+  });
